@@ -1,8 +1,8 @@
 {
-  "name": "date",
-  "version": "1.0.0",
+  "name": "@invilite/date",
+  "version": "1.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "date.extensions.js",
   "scripts": {
     "build": "node ./node_modules/typescript/bin/tsc",
     "test": "npm run test:unit && npm run test:func && npm run test:audit && npm run test:syntax",
@@ -10,7 +10,8 @@
     "test:func": "echo \"No test specified\"",
     "test:audit": "echo \"No test specified\"",
     "test:syntax": "eslint . --ext .ts",
-    "test:syntax:fix": "eslint . --ext .ts --fix"
+    "test:syntax:fix": "eslint . --ext .ts --fix",
+    "package:prepare": "mkdir -p ./dist && cp -R *.md LICENSE ChangeLog package*.json ./dist"
   },
   "keywords": [],
   "author": "",
