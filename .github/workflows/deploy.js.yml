@@ -15,7 +15,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci --no-audit
       - run: npm run build
-      - run: npm run package:prepare
+      - run: cp -R ./build ./dist && cp *.md LICENSE ChangeLog package*.json ./dist | true
       - run: cd dist && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

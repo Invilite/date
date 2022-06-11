@@ -10,8 +10,7 @@
     "test:func": "echo \"No test specified\"",
     "test:audit": "echo \"No test specified\"",
     "test:syntax": "eslint . --ext .ts",
-    "test:syntax:fix": "eslint . --ext .ts --fix",
-    "package:prepare": "cp -R ./build ./dist && cp *.md LICENSE ChangeLog package*.json ./dist | true"
+    "test:syntax:fix": "eslint . --ext .ts --fix"
   },
   "keywords": [],
   "author": "",
