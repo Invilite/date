@@ -1,7 +1,7 @@
 {
   "name": "@invilite/date",
-  "version": "1.0.2",
-  "description": "",
+  "version": "1.0.3",
+  "description": "Extends native JavaScript Date object by adding new methods.",
   "main": "date.extensions.js",
   "scripts": {
     "build": "node ./node_modules/typescript/bin/tsc",
@@ -12,9 +12,11 @@
     "test:syntax": "eslint . --ext .ts",
     "test:syntax:fix": "eslint . --ext .ts --fix"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "date", "extension", "format"
+  ],
+  "author": "Marek Ulwański <marek@ulwanski.pl>",
+  "license": "GNU General Public License v3.0",
   "devDependencies": {
     "@types/jest": "^27.4.1",
     "@types/node": "^17.0.24",
