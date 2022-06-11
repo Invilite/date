@@ -22,7 +22,7 @@ jobs:
         node-version: [12.x, 14.x, 16.x, 17.x]
         architecture:
           - x64
-#          - arm64
+          - arm64
 #          - armv6l
 #          - armv7l
 #        include:
