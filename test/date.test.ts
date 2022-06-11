@@ -1,4 +1,4 @@
-require("../src/date.extensions");
+import "../build/date.extensions";
 
 describe('diffFrom', () => {
   test('should accept date in parameter as a string (and return 0)', () => {
