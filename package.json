@@ -2,21 +2,24 @@
   "name": "@invilite/date",
   "version": "1.0.3",
   "description": "Extends native JavaScript Date object by adding new methods.",
+  "author": "Marek Ulwański <marek@ulwanski.pl>",
+  "license": "GNU General Public License v3.0",
   "main": "date.extensions.js",
   "scripts": {
+    "clean": "rm -Rf build coverage",
+    "clean:all": "npm run clean && rm -Rf node_modules",
     "build": "node ./node_modules/typescript/bin/tsc",
     "test": "npm run test:unit && npm run test:func && npm run test:audit && npm run test:syntax",
     "test:unit": "node ./node_modules/jest/bin/jest.js",
     "test:func": "echo \"No test specified\"",
-    "test:audit": "echo \"No test specified\"",
+    "test:audit": "npm audit --only=prod",
+    "test:audit:fix": "npm audit fix --only=prod",
     "test:syntax": "eslint . --ext .ts",
     "test:syntax:fix": "eslint . --ext .ts --fix"
   },
   "keywords": [
     "date", "extension", "format"
   ],
-  "author": "Marek Ulwański <marek@ulwanski.pl>",
-  "license": "GNU General Public License v3.0",
   "devDependencies": {
     "@types/jest": "^27.4.1",
     "@types/node": "^17.0.24",
