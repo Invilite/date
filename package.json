@@ -1,6 +1,6 @@
 {
   "name": "@invilite/date",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "date.extensions.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "test:audit": "echo \"No test specified\"",
     "test:syntax": "eslint . --ext .ts",
     "test:syntax:fix": "eslint . --ext .ts --fix",
-    "package:prepare": "mkdir -p ./dist && cp -R *.md LICENSE ChangeLog package*.json ./dist | true"
+    "package:prepare": "cp -R ./build ./dist && cp *.md LICENSE ChangeLog package*.json ./dist | true"
   },
   "keywords": [],
   "author": "",
