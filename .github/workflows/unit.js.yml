@@ -22,13 +22,13 @@ jobs:
         node-version: [12.x, 14.x, 16.x, 17.x]
         architecture:
           - x64
-          - arm64
+#          - arm64
 #          - armv6l
 #          - armv7l
-#        include:
-#           - os: ubuntu-20.04
-#             node-version: 16.x
-#             architecture: arm64
+        include:
+           - os: ubuntu-20.04
+             node-version: 16.x
+             architecture: arm64
 
     name: Unit tests with Node ${{ matrix.node-version }} on ${{ matrix.os }} ${{ matrix.architecture }}
     steps:
