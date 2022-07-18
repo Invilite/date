@@ -192,4 +192,16 @@ describe('textDiffFrom', () => {
     const futureDate = new Date("2022-04-08 14:30:00");
     expect(date.textDiffFrom(futureDate)).toBe('10 days');
   });
+
+  test('second part should be rounded down', () => {
+    const now = new Date();
+    const value = now.textDiffFrom((new Date()).addSeconds(-6005.1));
+    expect(value).toBe('1 hour, 40 minutes, 5 seconds');
+  });
+
+  test('second part should be rounded up', () => {
+    const now = new Date();
+    const value = now.textDiffFrom((new Date()).addSeconds(-6005.9));
+    expect(value).toBe('1 hour, 40 minutes, 6 seconds');
+  });
 });
