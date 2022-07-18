@@ -71,12 +71,16 @@ const formattedDate = date.format("YY-MM-D HH:mm:ss.S");
 |   DD    | Day of the month, 2 digits with leading zeros            |   09    |
 |    H    | 24-hour format of an hour without leading zeros          |   17    |
 |   HH    | 24-hour format of an hour with leading zeros             |   17    |
+|    h    | 12-hour format of an hour without leading zeros          |    9    |
+|   hh    | 12-hour format of an hour with leading zeros             |   09    |
 |    m    | Minutes without leading zeros                            |    5    |
 |   mm    | Minutes with leading zeros                               |   05    |
 |    s    | Seconds without leading zeros                            |    0    |
 |   ss    | Seconds with leading zeros                               |   00    |
 |    S    | Milliseconds without leading zeros                       |   34    |
 |   SS    | Milliseconds with leading zeros                          |   034   |
+|    a    | Lowercase Ante meridiem and Post meridiem                |   am    |
+|    A    | Uppercase Ante meridiem and Post meridiem                |   AM    |
 |    z    | Timezone offset in minutes                               |  -120   |
 |    Z    | Timezone offset in standard format                       | +02:00  |
 

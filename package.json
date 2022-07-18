@@ -1,9 +1,10 @@
 {
   "name": "@invilite/date",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Extends native JavaScript Date object by adding new methods.",
   "author": "Marek Ulwański <marek@ulwanski.pl>",
   "license": "GNU General Public License v3.0",
+  "repository": "https://github.com/Invilite/date",
   "main": "date.extensions.js",
   "scripts": {
     "clean": "rm -Rf build coverage",
