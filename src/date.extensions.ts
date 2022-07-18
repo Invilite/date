@@ -30,8 +30,7 @@ Date.prototype.textDiffFrom = function(date: Date): string {
   delta -= hours * 60 * 60;
   const minutes = Math.floor(delta / 60);
   delta -= minutes * 60;
-  const seconds = delta;
-
+  const seconds = Math.round(delta);
   const validValues = [];
 
   if (days > 0) {

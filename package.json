@@ -1,6 +1,6 @@
 {
   "name": "@invilite/date",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Extends native JavaScript Date object by adding new methods.",
   "author": "Marek Ulwański <marek@ulwanski.pl>",
   "license": "GNU General Public License v3.0",
