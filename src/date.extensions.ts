@@ -83,6 +83,14 @@ Date.prototype.format = function (format: string): string {
 
     case 'HH': return `0${this.getHours()}`.slice(-2);
 
+    case 'h': return (this.getHours() % 12) ? this.getHours() % 12 : 12;
+
+    case 'hh': return `0${(this.getHours() % 12) ? this.getHours() % 12 : 12}`.slice(-2);
+
+    case 'a': return this.getHours() >= 12 ? 'pm' : 'am';
+
+    case 'A': return this.getHours() >= 12 ? 'PM' : 'AM';
+
     case 'm': return this.getMinutes();
 
     case 'mm': return `0${this.getMinutes()}`.slice(-2);

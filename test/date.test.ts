@@ -131,6 +131,30 @@ describe('format', () => {
     date.getTimezoneOffset = () => 240;    // Mock local timezone
     expect(date.format("YY-MM-DD aaHH:mm:ss Z")).toBe("2022-04-18 14:30:00 -04:00");
   });
+
+  test('should return formatted date for "YY-MM-DD h:mm:ss a" string for post meridiem', () => {
+    const date = new Date("2022-04-18 14:30:00");
+    date.getTimezoneOffset = () => 240;    // Mock local timezone
+    expect(date.format("YY-MM-DD h:mm:ss a")).toBe("2022-04-18 2:30:00 pm");
+  });
+
+  test('should return formatted date for "YY-MM-DD hh:mm:ss A" string for post meridiem', () => {
+    const date = new Date("2022-04-18 14:30:00");
+    date.getTimezoneOffset = () => 240;    // Mock local timezone
+    expect(date.format("YY-MM-DD hh:mm:ss A")).toBe("2022-04-18 02:30:00 PM");
+  });
+
+  test('should return formatted date for "YY-MM-DD h:mm:ss a" string for ante meridiem', () => {
+    const date = new Date("2022-04-18 03:10:00");
+    date.getTimezoneOffset = () => 240;    // Mock local timezone
+    expect(date.format("YY-MM-DD h:mm:ss a")).toBe("2022-04-18 3:10:00 am");
+  });
+
+  test('should return formatted date for "YY-MM-DD hh:mm:ss A" string for ante meridiem', () => {
+    const date = new Date("2022-04-18 03:10:00");
+    date.getTimezoneOffset = () => 240;    // Mock local timezone
+    expect(date.format("YY-MM-DD hh:mm:ss A")).toBe("2022-04-18 03:10:00 AM");
+  });
 });
 
 describe('textDiffFrom', () => {
