@@ -6,7 +6,7 @@ declare global {
         textDiffFrom: (date: Date) => string;
         addSeconds: (seconds: number) => Date;
         toUnixTimestamp: () => number;
-        format: (format: string) => string;
+        format: (format: string, locales?: string | string[]) => string;
     }
 }
 
@@ -64,7 +64,7 @@ Date.prototype.toUnixTimestamp = function(): number {
   return (this.getTime()) / 1e3;
 };
 
-Date.prototype.format = function (format: string): string {
+Date.prototype.format = function (format: string, locales: string | string[] = 'default'): string {
   return format.replace(/[A-Za-z]{1,2}/g, (part: any) => {
     switch (part) {
     case 'Y': return this.getFullYear().toString().slice(-2);
@@ -74,6 +74,10 @@ Date.prototype.format = function (format: string): string {
     case 'M': return (1 + this.getMonth());
 
     case 'MM': return `0${1 + this.getMonth()}`.slice(-2);
+
+    case 'b': return this.toLocaleString(locales, { month: 'short' });
+
+    case 'B': return this.toLocaleString(locales, { month: 'long' });
 
     case 'D': return this.getDate();
 
