@@ -155,6 +155,16 @@ describe('format', () => {
     date.getTimezoneOffset = () => 240;    // Mock local timezone
     expect(date.format("YY-MM-DD hh:mm:ss A")).toBe("2022-04-18 03:10:00 AM");
   });
+
+  test('should return short formatted month name for "b" string', () => {
+    const date = new Date("2022-04-18 18:30:00");
+    expect(date.format("b", "en-US")).toBe('Apr');
+  });
+
+  test('should return short formatted month name for "B" string', () => {
+    const date = new Date("2022-04-18 18:30:00");
+    expect(date.format("B", "en-US")).toBe('April');
+  });
 });
 
 describe('textDiffFrom', () => {
