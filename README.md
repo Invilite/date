@@ -68,7 +68,7 @@ const formattedDate = date.format("YY-MM-D HH:mm:ss.S");
 |    M    | Numeric representation of a month, without leading zeros |    3    |
 |   MM    | Numeric representation of a month, with leading zeros    |   03    |
 |    B    | Full month name                                          | January |
-|    b    | Short form of month                                      |   Jan   |
+|    b    | Short month name                                         |   Jan   |
 |    D    | Day of the month without leading zeros                   |    9    |
 |   DD    | Day of the month, 2 digits with leading zeros            |   09    |
 |    H    | 24-hour format of an hour without leading zeros          |   17    |
