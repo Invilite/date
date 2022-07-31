@@ -71,6 +71,7 @@ const formattedDate = date.format("YY-MM-D HH:mm:ss.S");
 |    b    | Short month name                                         |   Jan   |
 |    D    | Day of the month without leading zeros                   |    9    |
 |   DD    | Day of the month, 2 digits with leading zeros            |   09    |
+|    w    | Week of the year                                         |   28    |
 |    H    | 24-hour format of an hour without leading zeros          |   17    |
 |   HH    | 24-hour format of an hour with leading zeros             |   17    |
 |    h    | 12-hour format of an hour without leading zeros          |    9    |

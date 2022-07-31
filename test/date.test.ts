@@ -165,6 +165,16 @@ describe('format', () => {
     const date = new Date("2022-04-18 18:30:00");
     expect(date.format("B", "en-US")).toBe('April');
   });
+
+  test('should return "30" for "w" string and date 31.07.2022', () => {
+    const date = new Date("2022-07-31 18:30:00");
+    expect(date.format("w")).toBe('30');
+  });
+
+  test('should return "31" for "w" string and date 1.08.2022', () => {
+    const date = new Date("2022-08-1 18:30:00");
+    expect(date.format("w")).toBe('31');
+  });
 });
 
 describe('textDiffFrom', () => {
