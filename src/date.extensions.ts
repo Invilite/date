@@ -120,6 +120,8 @@ Date.prototype.format = function (format: string, locales: string | string[] = '
 
     case 'Z': return getTimezoneOffsetString(this);
 
+    case 'X': return Math.floor(this.getTime() / 1000);
+
     default: return part.slice (part.length); // unknown code, remove
     }
   });

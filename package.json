@@ -1,11 +1,13 @@
 {
   "name": "@invilite/date",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Extends native JavaScript Date object by adding new methods.",
   "author": "Marek Ulwański <marek@ulwanski.pl>",
   "license": "GNU General Public License v3.0",
   "repository": "https://github.com/Invilite/date",
+  "homepage": "https://github.com/Invilite/date/blob/master/README.md",
   "main": "date.extensions.js",
+  "types": "date.extensions.d.ts",
   "scripts": {
     "clean": "rm -Rf build coverage",
     "clean:all": "npm run clean && rm -Rf node_modules",
