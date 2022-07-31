@@ -175,6 +175,11 @@ describe('format', () => {
     const date = new Date("2022-08-1 18:30:00");
     expect(date.format("w")).toBe('31');
   });
+
+  test('should return "1659378600" for "X" string and date "2022-08-1 18:30:00 UTC+00:00"', () => {
+    const date = new Date("2022-08-1 18:30:00 UTC+00:00");
+    expect(date.format("X")).toBe('1659378600');
+  });
 });
 
 describe('textDiffFrom', () => {
