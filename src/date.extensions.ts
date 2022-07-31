@@ -18,6 +18,13 @@ function getTimezoneOffsetString(date: Date): string {
   return `${(offset <= 0 ? '+' : '-')}${hours}:${minutes}`;
 }
 
+function getWeekNumber (date: Date){
+  const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+  return Math.ceil((((d.getTime() - yearStart.getTime()) / 86400000) + 1)/7);
+}
+
 Date.prototype.diffFrom = function(date: Date | string = new Date()): number {
   return (this.getTime() - (new Date(date)).getTime()) / 1e3;
 };
@@ -82,6 +89,8 @@ Date.prototype.format = function (format: string, locales: string | string[] = '
     case 'D': return this.getDate();
 
     case 'DD': return `0${this.getDate()}`.slice(-2);
+
+    case 'w': return getWeekNumber(this);
 
     case 'H': return this.getHours();
 
