@@ -1,6 +1,7 @@
 # @invilite/date
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/8449157170aa4b85bf9a2c9697c49fad)](https://www.codacy.com/gh/Invilite/date/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Invilite/date&amp;utm_campaign=Badge_Grade)
 [![Maintainability](https://api.codeclimate.com/v1/badges/54f496f7eafa0dbde44b/maintainability)](https://codeclimate.com/github/Invilite/date/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/54f496f7eafa0dbde44b/test_coverage)](https://codeclimate.com/github/Invilite/date/test_coverage)
 [![Known Vulnerabilities](https://snyk.io/test/github/invilite/date/badge.svg)](https://snyk.io/test/github/invilite/date)
 [![Version](https://img.shields.io/badge/dynamic/json?color=brightgreen&label=version&query=version&url=https%3A%2F%2Fraw.githubusercontent.com%2FInvilite%2Fdate%2Fmaster%2Fpackage.json)](https://github.com/Invilite/date/blob/master/package.json)
 [![License](https://img.shields.io/badge/license-GPL--3.0-blue)](https://github.com/Invilite/date/blob/master/LICENSE)
