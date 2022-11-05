@@ -166,14 +166,14 @@ describe('format', () => {
     expect(date.format("B", "en-US")).toBe('April');
   });
 
-  test('should return "30" for "w" string and date 31.07.2022', () => {
+  test('should return "30" for "W" string and date 31.07.2022', () => {
     const date = new Date("2022-07-31 18:30:00");
-    expect(date.format("w")).toBe('30');
+    expect(date.format("W")).toBe('30');
   });
 
-  test('should return "31" for "w" string and date 1.08.2022', () => {
+  test('should return "31" for "W" string and date 1.08.2022', () => {
     const date = new Date("2022-08-1 18:30:00");
-    expect(date.format("w")).toBe('31');
+    expect(date.format("W")).toBe('31');
   });
 
   test('should return "1659378600" for "X" string and date "2022-08-1 18:30:00 UTC+00:00"', () => {

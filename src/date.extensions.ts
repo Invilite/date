@@ -90,7 +90,9 @@ Date.prototype.format = function (format: string, locales: string | string[] = '
 
     case 'DD': return `0${this.getDate()}`.slice(-2);
 
-    case 'w': return getWeekNumber(this);
+    case 'w': return this.getDay();
+
+    case 'W': return getWeekNumber(this);
 
     case 'H': return this.getHours();
 
