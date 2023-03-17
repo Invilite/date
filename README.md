@@ -48,17 +48,24 @@ console.log(date.format("YY-MM-D HH:mm:ss.S"));
 ## Methods
 
 ### format()
-Return the formatted date string in the given format.
+Return the formatted date string in the given format, optionally converts to different timezone.
 
 #### Syntax
 ```
-format(format: string): string;
+format(format: string, locales?: string | string[], timezoneName?: string): string;
 ```
 
 #### Example
 ```typescript
 const date = new Date();
 const formattedDate = date.format("YY-MM-D HH:mm:ss.S");
+```
+
+```typescript
+const date = new Date("2022-04-18 15:30:00 +01:00");
+
+// Convert time to Tokyo timezone
+const formattedTime = date.format("YY-MM-D HH:mm:ss.S", "en-US", "Asia/Tokyo");
 ```
 
 #### Accepted patterns:
