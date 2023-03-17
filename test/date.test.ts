@@ -91,68 +91,74 @@ describe('format', () => {
     expect(date.format("YYMMDDHHmmss")).toBe("20220418143000");
   });
 
-  test('should return formatted date for "YY-MMMM-DDD HH:mm:ss" string', () => {
+  test('should return formatted date for "YY-MMMM-DDD HH:mm:ss" string and default timezone', () => {
     const date = new Date("04-8-2022 14:30:00");
     expect(date.format("YY-MMMM-DDD HH:mm:ss")).toBe("2022-0404-088 14:30:00");
   });
 
-  test('should return formatted date for "YY-MM-DD HH:mm:ss z" string', () => {
+  test('should return formatted date for "YY-MM-DD HH:mm:ss z" string and same timezone', () => {
+    const date = new Date("04-18-2022 14:30:00 +01:00");
+    expect(date.format("YY-MM-DD HH:mm:ss z", "en-US", "Etc/GMT-1")).toBe("2022-04-18 14:30:00 -60");
+  });
+
+  test('should return formatted date for "YY-MM-DD HH:mm:ss z" string and default timezone', () => {
     const date = new Date("04-18-2022 14:30:00");
-    date.getTimezoneOffset = () => 360;    // Mock local timezone
-    expect(date.format("YY-MM-DD HH:mm:ss z")).toBe("2022-04-18 14:30:00 360");
+    const timezoneOffset = date.getTimezoneOffset();
+    expect(date.format("YY-MM-DD HH:mm:ss z")).toBe(`2022-04-18 14:30:00 ${timezoneOffset}`);
   });
 
-  test('should return formatted date for "YY-MM-DD HH:mm:ss z" string', () => {
-    const date = new Date("04-18-2022 14:30:00");
-    date.getTimezoneOffset = () => 360;    // Mock local timezone
-    expect(date.format("YY-MM-DD HH:mm:ss Z")).toBe("2022-04-18 14:30:00 -06:00");
+  test('should return formatted date for "YY-MM-DD HH:mm:ss Z" string and same timezone', () => {
+    const date = new Date("04-18-2022 14:30:00 +01:00");
+    expect(date.format("YY-MM-DD HH:mm:ss Z", "en-US", "Etc/GMT-1")).toBe("2022-04-18 14:30:00 +01:00");
   });
 
-  test('should return formatted date for "YY-MM-DD HH:mm:ss z" string', () => {
-    const date = new Date("2022-04-18 14:30:00");
-    date.getTimezoneOffset = () => 360;    // Mock local timezone
-    expect(date.format("YY-MM-DD HH:mm:ss Z")).toBe("2022-04-18 14:30:00 -06:00");
+  test('should return formatted date for "YY-MM-DD HH:mm:ss Z" string and other timezone', () => {
+    const date = new Date("2022-04-18 14:30:00 +00:00");
+    expect(date.format("YY-MM-DD HH:mm:ss Z", "en-US", "Etc/GMT+6")).toBe("2022-04-18 08:30:00 -06:00");
   });
 
-  test('should return formatted date for "YY-MM-DD HH:mm:ss z" string and positive timezone', () => {
-    const date = new Date("2022-04-18 14:30:00");
-    date.getTimezoneOffset = () => -600;    // Mock local timezone
-    expect(date.format("YY-MM-DD HH:mm:ss Z")).toBe("2022-04-18 14:30:00 +10:00");
+  test('should return formatted date for "YY-MM-DD HH:mm:ss Z" string and positive timezone', () => {
+    const date = new Date("2022-04-18 14:30:00 +01:00");
+    expect(date.format("YY-MM-DD HH:mm:ss Z", "pl-PL", "Etc/GMT-10")).toBe("2022-04-18 23:30:00 +10:00");
   });
 
-  test('should return formatted date for "YY-MM-DD HH:mm:ss z" string and negative timezone', () => {
-    const date = new Date("2022-04-18 14:30:00");
-    date.getTimezoneOffset = () => 600;    // Mock local timezone
-    expect(date.format("YY-MM-DD HH:mm:ss Z")).toBe("2022-04-18 14:30:00 -10:00");
+  test('should return formatted date for "YY-MM-DD HH:mm:ss Z" string and negative timezone', () => {
+    const date = new Date("2022-04-18 14:30:00 +01:00");
+    expect(date.format("YY-MM-DD HH:mm:ss Z", "pl-PL", "Etc/GMT+10")).toBe("2022-04-18 03:30:00 -10:00");
   });
 
-  test('should return formatted date for "YY-MM-DD aaHH:mm:ss z" string', () => {
-    const date = new Date("2022-04-18 14:30:00");
-    date.getTimezoneOffset = () => 240;    // Mock local timezone
-    expect(date.format("YY-MM-DD aaHH:mm:ss Z")).toBe("2022-04-18 14:30:00 -04:00");
+  test('should return formatted date for "YY-MM-DD aaHH:mm:ss Z" string', () => {
+    const date = new Date("2022-04-18 14:30:00 +01:00");
+    expect(date.format("YY-MM-DD aaHH:mm:ss Z", 'en-US', "Asia/Tokyo")).toBe("2022-04-18 22:30:00 +09:00");
   });
 
   test('should return formatted date for "YY-MM-DD h:mm:ss a" string for post meridiem', () => {
     const date = new Date("2022-04-18 14:30:00");
-    date.getTimezoneOffset = () => 240;    // Mock local timezone
     expect(date.format("YY-MM-DD h:mm:ss a")).toBe("2022-04-18 2:30:00 pm");
   });
 
   test('should return formatted date for "YY-MM-DD hh:mm:ss A" string for post meridiem', () => {
     const date = new Date("2022-04-18 14:30:00");
-    date.getTimezoneOffset = () => 240;    // Mock local timezone
     expect(date.format("YY-MM-DD hh:mm:ss A")).toBe("2022-04-18 02:30:00 PM");
+  });
+
+  test('should return formatted date for "YY-MM-DD hh:mm:ss A" string for PM and 12 hour', () => {
+    const date = new Date("2022-04-18 12:30:25");
+    expect(date.format("YY-MM-DD hh:mm:ss A")).toBe("2022-04-18 12:30:25 PM");
+  });
+
+  test('should return formatted date for "YY-MM-DD h:mm:ss A" string for AM and 12 hour', () => {
+    const date = new Date("2022-04-18 0:30:25");
+    expect(date.format("YY-MM-DD h:mm:ss A")).toBe("2022-04-18 12:30:25 AM");
   });
 
   test('should return formatted date for "YY-MM-DD h:mm:ss a" string for ante meridiem', () => {
     const date = new Date("2022-04-18 03:10:00");
-    date.getTimezoneOffset = () => 240;    // Mock local timezone
     expect(date.format("YY-MM-DD h:mm:ss a")).toBe("2022-04-18 3:10:00 am");
   });
 
   test('should return formatted date for "YY-MM-DD hh:mm:ss A" string for ante meridiem', () => {
     const date = new Date("2022-04-18 03:10:00");
-    date.getTimezoneOffset = () => 240;    // Mock local timezone
     expect(date.format("YY-MM-DD hh:mm:ss A")).toBe("2022-04-18 03:10:00 AM");
   });
 
@@ -189,6 +195,11 @@ describe('format', () => {
   test('should return "1659378600" for "X" string and date "2022-08-1 18:30:00 UTC+00:00"', () => {
     const date = new Date("2022-08-1 18:30:00 UTC+00:00");
     expect(date.format("X")).toBe('1659378600');
+  });
+
+  test('should respect timezone parameter', () => {
+    const date = new Date("2023-03-16 21:45:00 UTC+09:00"); // 21:45 in Tokyo timezone, 13:45 in Warsaw timezone
+    expect(date.format("YY-MM-DD HH:mm:ss Z", "pl-PL", "Etc/GMT-1")).toBe("2023-03-16 13:45:00 +01:00");
   });
 });
 
